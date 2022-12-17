@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 void main() {
   HttpOverrides.global = MyHttpOverrides();
+  Paint.enableDithering = true;
   runApp(const MyApp());
 }
 

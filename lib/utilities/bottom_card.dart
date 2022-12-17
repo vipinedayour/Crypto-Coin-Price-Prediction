@@ -1,8 +1,10 @@
 import 'package:crypto_price_prediction/pages/graph_page.dart';
+import 'package:crypto_price_prediction/utilities/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controller/controller.dart';
+import 'constants.dart';
 
 class BottomCard extends StatelessWidget {
   final controller = Get.put(Controller());
@@ -12,20 +14,26 @@ class BottomCard extends StatelessWidget {
   final String price;
   final IconData icon;
   final String desc;
-  BottomCard({
-    super.key,
-    required this.cryptoCurrency,
-    required this.subtitle,
-    required this.icon,
-    required this.price,
-    required this.desc,
-  });
+  final bool status;
+  BottomCard(
+      {super.key,
+      required this.cryptoCurrency,
+      required this.subtitle,
+      required this.icon,
+      required this.price,
+      required this.desc,
+      required this.status});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey[900],
+        // color: Colors.grey[900],
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [status ? kCardGreen : kCardRed, kCardBgColor],
+        ),
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30.0),
           topRight: Radius.circular(30.0),
@@ -40,50 +48,54 @@ class BottomCard extends StatelessWidget {
               icon,
               size: 45,
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
-            Text(
-              cryptoCurrency,
-              style: TextStyle(fontSize: 30),
+            CustomListTile(
+              title: cryptoCurrency,
+              subtitle: subtitle,
+              titleSize: 30,
             ),
-            Text(subtitle),
-            SizedBox(
-              height: 25,
+            const SizedBox(
+              height: 20,
             ),
             Text(
               desc,
-              style: TextStyle(fontSize: 13),
+              style: const TextStyle(
+                  fontSize: 13, color: Color.fromARGB(255, 120, 120, 120)),
               textAlign: TextAlign.center,
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  width: 120,
-                  child: ListTile(
-                    title: Center(child: Text("RANK")),
-                    subtitle: Center(child: Text("256")),
+                Expanded(
+                  child: CustomListTile(
+                    title: "RANK",
+                    subtitle: '256',
+                    crossAxisAlignment: CrossAxisAlignment.center,
                   ),
                 ),
-                Container(
-                  width: 120,
-                  child: ListTile(
-                    title: Center(child: Text("LIVE PRICE")),
-                    subtitle: Center(child: Text("256")),
+                Expanded(
+                  child: CustomListTile(
+                    title: "LIVE PRICE",
+                    subtitle: '256',
+                    crossAxisAlignment: CrossAxisAlignment.center,
                   ),
                 ),
-                Container(
-                  width: 130,
-                  child: ListTile(
-                    title: Center(child: Text("MARKET CAP")),
-                    subtitle: Center(child: Text("256")),
+                Expanded(
+                  child: CustomListTile(
+                    title: "MARKET CAP",
+                    subtitle: '256',
+                    crossAxisAlignment: CrossAxisAlignment.center,
                   ),
                 ),
               ],
+            ),
+            SizedBox(
+              height: 10,
             ),
             TextButton(
                 onPressed: () {

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../controller/controller.dart';
 import '../model/line_titles.dart';
+import '../utilities/custom_legend.dart';
 import '../utilities/line_graph.dart';
 
 class Chart extends StatelessWidget {
@@ -30,7 +31,10 @@ class Chart extends StatelessWidget {
                     flex: 2,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: LineGraph(),
+                      child: Stack(children: [
+                        LineGraph(),
+                        CustomLegend(),
+                      ]),
                     ),
                   ),
                   Row(

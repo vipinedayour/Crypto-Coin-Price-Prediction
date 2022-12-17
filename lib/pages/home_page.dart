@@ -8,6 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBgColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -18,6 +19,8 @@ class HomePage extends StatelessWidget {
             icon: Icons.currency_bitcoin,
             price: "1849",
             desc: btc_desc,
+            status: true,
+            imagePath: 'images/bitcoin.png',
           ),
           CryptoCard(
             cryptoCurrency: "ETH",
@@ -25,6 +28,8 @@ class HomePage extends StatelessWidget {
             icon: Icons.currency_exchange,
             price: "3296",
             desc: eth_desc,
+            status: false,
+            imagePath: 'images/ether.png',
           ),
           CryptoCard(
             cryptoCurrency: "Polygon",
@@ -32,6 +37,8 @@ class HomePage extends StatelessWidget {
             icon: Icons.currency_franc,
             price: "8935",
             desc: polygon_desc,
+            status: false,
+            imagePath: 'images/polygon.png',
           ),
           CryptoCard(
             cryptoCurrency: "BNB",
@@ -39,6 +46,8 @@ class HomePage extends StatelessWidget {
             icon: Icons.currency_ruble_outlined,
             price: "541",
             desc: bnb_desc,
+            status: true,
+            imagePath: 'images/binance.png',
           ),
         ],
       ),

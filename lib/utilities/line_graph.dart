@@ -1,3 +1,4 @@
+import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,12 +22,20 @@ class LineGraph extends StatelessWidget {
                 .map((element) => FlSpot(element.x, element.y))
                 .toList(),
             isCurved: true,
-            color: Color.fromARGB(255, 14, 250, 211),
+            color: kActualPriceColor,
             barWidth: 3,
             dotData: FlDotData(show: false),
             belowBarData: BarAreaData(
               show: true,
-              color: Color.fromARGB(0, 14, 250, 211),
+              gradient: LinearGradient(
+                begin: Alignment.center,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color.fromARGB(62, 14, 250, 211),
+                  Color.fromARGB(0, 14, 250, 211)
+                ],
+              ),
+              color: Color.fromARGB(29, 14, 250, 211),
             ),
           ),
           LineChartBarData(
@@ -34,32 +43,32 @@ class LineGraph extends StatelessWidget {
                 .map((element) => FlSpot(element.x, element.y))
                 .toList(),
             isCurved: true,
-            color: Color.fromARGB(255, 250, 144, 14),
+            color: kPredictedPriceColor,
             barWidth: 3,
             dotData: FlDotData(show: false),
             belowBarData: BarAreaData(
-              show: true,
-              color: Color.fromARGB(0, 250, 144, 14),
+              show: false,
+              color: Color.fromARGB(99, 250, 144, 14),
             ),
           ),
         ],
         gridData: FlGridData(
-          show: true,
-          getDrawingHorizontalLine: (value) => FlLine(
-            color: const Color(0xff37343d),
-            strokeWidth: 1,
-          ),
-          drawVerticalLine: true,
-          getDrawingVerticalLine: (value) => FlLine(
-            color: const Color(0xff37343d),
-            strokeWidth: 1,
-          ),
+          show: false,
+          // getDrawingHorizontalLine: (value) => FlLine(
+          //   color: const Color(0xff37343d),
+          //   strokeWidth: 1,
+          // ),
+          // drawVerticalLine: true,
+          // getDrawingVerticalLine: (value) => FlLine(
+          //   color: const Color(0xff37343d),
+          //   strokeWidth: 1,
+          // ),
         ),
         borderData: FlBorderData(
-          show: true,
-          border: Border.all(
-            color: const Color(0xff37343d),
-          ),
+          show: false,
+          // border: Border.all(
+          //   color: const Color(0xff37343d),
+          // ),
         ),
       ),
     );

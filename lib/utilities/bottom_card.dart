@@ -1,3 +1,4 @@
+import 'package:crypto_price_prediction/functions/conversion.dart';
 import 'package:crypto_price_prediction/pages/graph_page.dart';
 import 'package:crypto_price_prediction/utilities/custom_list_tile.dart';
 import 'package:flutter/material.dart';
@@ -9,36 +10,51 @@ import 'constants.dart';
 class BottomCard extends StatelessWidget {
   final controller = Get.put(Controller());
 
-  final String cryptoCurrency;
-  final String subtitle;
+  final String symbol;
+  final String name;
   final String price;
   final IconData icon;
-  final String desc;
   final bool status;
+  final String rank;
+  final String marketCapUsd;
+  final String id;
   BottomCard(
       {super.key,
-      required this.cryptoCurrency,
-      required this.subtitle,
+      required this.symbol,
+      required this.name,
       required this.icon,
       required this.price,
-      required this.desc,
-      required this.status});
+      required this.status,
+      required this.rank,
+      required this.marketCapUsd,
+      required this.id});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        // color: Colors.grey[900],
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [status ? kCardGreen : kCardRed, kCardBgColor],
-        ),
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(30.0),
-          topRight: Radius.circular(30.0),
-        ),
-      ),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [status ? kCardGreen : kCardRed, kCardBgColor],
+          ),
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(30.0),
+            topRight: Radius.circular(30.0),
+          ),
+          boxShadow: [
+            // BoxShadow(
+            //   color: Color.fromARGB(255, 243, 85, 138),
+            //   spreadRadius: 0.5,
+            //   blurRadius: 50,
+            // ),
+
+            // BoxShadow(
+            //   color: Colors.pink,
+            //   spreadRadius: -4,
+            //   blurRadius: 5,
+            // )
+          ]),
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
@@ -52,54 +68,63 @@ class BottomCard extends StatelessWidget {
               height: 25,
             ),
             CustomListTile(
-              title: cryptoCurrency,
-              subtitle: subtitle,
+              title: name,
+              subtitle: symbol,
               titleSize: 30,
             ),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
-            Text(
-              desc,
-              style: const TextStyle(
-                  fontSize: 13, color: Color.fromARGB(255, 120, 120, 120)),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(
-              height: 25,
-            ),
+            // const SizedBox(
+            //   height: 25,
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Expanded(
                   child: CustomListTile(
                     title: "RANK",
-                    subtitle: '256',
+                    subtitle: rank,
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    titleSize: 14,
+                    subtitleSize: 20,
+                    titleColor: KTextGrey,
+                    subtitleColor: KTextWhite,
+                    subtitleFontWeight: FontWeight.bold,
                   ),
                 ),
                 Expanded(
                   child: CustomListTile(
                     title: "LIVE PRICE",
-                    subtitle: '256',
+                    subtitle: '\$ ' + convertIt(price),
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    titleSize: 14,
+                    subtitleSize: 20,
+                    titleColor: KTextGrey,
+                    subtitleColor: KTextWhite,
+                    subtitleFontWeight: FontWeight.bold,
                   ),
                 ),
                 Expanded(
                   child: CustomListTile(
                     title: "MARKET CAP",
-                    subtitle: '256',
+                    subtitle: convertIt(marketCapUsd),
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    titleSize: 14,
+                    subtitleSize: 20,
+                    titleColor: KTextGrey,
+                    subtitleColor: KTextWhite,
+                    subtitleFontWeight: FontWeight.bold,
                   ),
                 ),
               ],
             ),
             SizedBox(
-              height: 10,
+              height: 30,
             ),
             TextButton(
                 onPressed: () {
-                  controller.fetchPrice('bitcoin');
+                  controller.fetchPrice(id);
                   print("pressed");
                   Get.to(() => Chart());
                 },

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class LineTitles {
   static getTitleData() => FlTitlesData(
-        show: true,
+        show: false,
         bottomTitles: AxisTitles(
           // axisNameWidget: Text(
           //   "Days",

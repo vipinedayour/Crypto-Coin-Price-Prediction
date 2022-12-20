@@ -9,8 +9,12 @@ const String polygon_desc =
 const String bnb_desc =
     "Binance Coin was created in July 2017 and initially worked on the ethereum blockchain with the token ERC-20";
 const Color kBgColor = Colors.black;
-const Color kCardBgColor = Color.fromARGB(255, 25, 25, 25);
+const Color kCardBgColor = Color.fromARGB(255, 15, 15, 15);
 const Color kCardGreen = Color.fromARGB(255, 23, 54, 45);
 const Color kCardRed = Color.fromARGB(255, 54, 23, 23);
+const Color KTextGrey = Color.fromARGB(255, 120, 120, 120);
+const Color KTextWhite = Colors.white;
 const Color kTextGreen = Color.fromARGB(255, 13, 188, 120);
 const Color kTextRed = Color.fromARGB(255, 227, 64, 86);
+const Color kActualPriceColor = Color.fromARGB(255, 14, 250, 211);
+const Color kPredictedPriceColor = Color.fromARGB(255, 250, 144, 14);

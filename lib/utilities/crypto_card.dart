@@ -4,22 +4,24 @@ import 'package:crypto_price_prediction/utilities/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class CryptoCard extends StatelessWidget {
-  final String cryptoCurrency;
-  final String subtitle;
+  final String symbol;
+  final String name;
   final String price;
   final IconData icon;
-  final String desc;
   final bool status;
-  final String imagePath;
+  final String rank;
+  final String marketCapUsd;
+  final String id;
   const CryptoCard(
       {super.key,
-      required this.cryptoCurrency,
-      required this.subtitle,
+      required this.symbol,
+      required this.name,
       required this.icon,
       required this.price,
-      required this.desc,
       required this.status,
-      required this.imagePath});
+      required this.rank,
+      required this.id,
+      required this.marketCapUsd});
 
   @override
   Widget build(BuildContext context) {
@@ -30,18 +32,15 @@ class CryptoCard extends StatelessWidget {
           isScrollControlled: true,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          builder: ((context) => Container(
-                color: Colors
-                    .transparent, //could change this to Color(0xFF737373),
-                //so you don't have to change MaterialApp canvasColor
-                child: BottomCard(
-                  cryptoCurrency: cryptoCurrency,
-                  price: price,
-                  subtitle: subtitle,
-                  icon: icon,
-                  desc: desc,
-                  status: status,
-                ),
+          builder: ((context) => BottomCard(
+                symbol: symbol,
+                price: price,
+                name: name,
+                icon: icon,
+                status: status,
+                rank: rank,
+                marketCapUsd: marketCapUsd,
+                id: id,
               )),
         );
       },
@@ -69,29 +68,38 @@ class CryptoCard extends StatelessWidget {
                 padding: EdgeInsets.only(left: 5),
                 child: Row(
                   children: [
-                    // Icon(
-                    //   icon,
-                    //   color: Colors.white,
-                    // ),
-                    Image(
-                      image: AssetImage(imagePath),
-                      height: 40,
+                    Icon(
+                      icon,
+                      color: Colors.white,
                     ),
                     const SizedBox(
                       width: 20,
                     ),
                     CustomListTile(
-                      title: cryptoCurrency,
-                      subtitle: subtitle,
+                      title: symbol,
+                      subtitle: name,
                       crossAxisAlignment: CrossAxisAlignment.start,
                     )
                   ],
                 ),
               ),
-              Text(
-                price,
-                style: TextStyle(
-                    color: status ? kTextGreen : kTextRed, fontSize: 18),
+              Row(
+                children: [
+                  status
+                      ? Icon(
+                          Icons.arrow_drop_up,
+                          color: kTextGreen,
+                        )
+                      : Icon(
+                          Icons.arrow_drop_down,
+                          color: kTextRed,
+                        ),
+                  Text(
+                    price,
+                    style: TextStyle(
+                        color: status ? kTextGreen : kTextRed, fontSize: 18),
+                  ),
+                ],
               )
             ],
           ),

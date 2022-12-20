@@ -1,3 +1,4 @@
+import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomLegend extends StatelessWidget {
@@ -6,34 +7,34 @@ class CustomLegend extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: 40,
-      top: 10,
+      left: 20,
+      top: 20,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: const [
               Icon(
-                Icons.stacked_line_chart,
-                color: Color.fromARGB(255, 250, 144, 14),
-                size: 30,
+                Icons.call_missed_outgoing_sharp,
+                color: kPredictedPriceColor,
+                size: 20,
               ),
               Text(
                 "Predicted Price",
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 15),
               )
             ],
           ),
           Row(
             children: const [
               Icon(
-                Icons.stacked_line_chart,
-                color: Color.fromARGB(255, 14, 250, 211),
-                size: 30,
+                Icons.call_missed_outgoing_sharp,
+                color: kActualPriceColor,
+                size: 20,
               ),
               Text(
                 "Actual Price",
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 15),
               )
             ],
           ),

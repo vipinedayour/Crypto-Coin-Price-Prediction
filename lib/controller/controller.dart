@@ -25,7 +25,6 @@ class Controller extends GetxController {
         var json = jsonDecode(jsonString);
         var a = List<double>.from(json['actual_price']);
         var p = List<double>.from(json['predicted_price']);
-        // print(p);
         actualPriceList.value = a
             .mapIndexed(((index, element) =>
                 PricePoint(x: index.toDouble(), y: element)))
@@ -34,11 +33,6 @@ class Controller extends GetxController {
             .mapIndexed(((index, element) =>
                 PricePoint(x: index.toDouble(), y: element)))
             .toList();
-        // print(p.length);
-        // print("actual price");
-        // print(a);
-        // print("prdicted price");
-        // print(p);
       } else {
         print("error fetching data");
       }

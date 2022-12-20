@@ -1,4 +1,5 @@
 import 'package:crypto_price_prediction/model/price_point.dart';
+import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,6 +19,7 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: kBgColor,
         body: Obx(
           () {
             if (controller.isLoading.value) {
@@ -58,7 +60,7 @@ class Chart extends StatelessWidget {
                         ),
                         child: const Text(
                           "3m",
-                          style: TextStyle(fontSize: 20, color: Colors.white),
+                          style: TextStyle(fontSize: 15, color: Colors.white),
                         ),
                       ),
                       TextButton(
@@ -79,7 +81,7 @@ class Chart extends StatelessWidget {
                         ),
                         child: Text(
                           "1m",
-                          style: TextStyle(fontSize: 20, color: Colors.white),
+                          style: TextStyle(fontSize: 15, color: Colors.white),
                         ),
                       ),
                       TextButton(
@@ -100,7 +102,7 @@ class Chart extends StatelessWidget {
                         ),
                         child: Text(
                           "1w",
-                          style: TextStyle(fontSize: 20, color: Colors.white),
+                          style: TextStyle(fontSize: 15, color: Colors.white),
                         ),
                       ),
                     ],

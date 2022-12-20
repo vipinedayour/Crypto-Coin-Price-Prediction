@@ -39,6 +39,8 @@ dependencies:
   fl_chart: ^0.55.2
   http: ^0.13.5
   get: ^4.6.5
+  google_fonts: ^3.0.1
+  crypto_font_icons: ^1.0.1
 
 dev_dependencies:
   flutter_test:

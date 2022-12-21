@@ -12,6 +12,7 @@ class DetailsController extends GetxController {
   var usdt = Data().obs;
   var isLoading = true.obs;
 
+
   fetchDetails() async {
     isLoading.value = true;
     try {

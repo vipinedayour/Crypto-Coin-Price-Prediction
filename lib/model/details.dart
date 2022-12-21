@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 Data dataFromJson(Map<String, dynamic> str) => Data.fromJson(str);
 //this part is modified to fit for this project .This is not good practice.Don't follow this
 

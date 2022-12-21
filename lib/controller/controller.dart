@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:crypto_price_prediction/functions/stat.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 // ignore: depend_on_referenced_packages
@@ -12,6 +13,8 @@ class Controller extends GetxController {
   var isLoading = true.obs;
   var minX = 20.obs;
   var maxX = 110.obs;
+  var maxPrice = 0.0.obs;
+  var minPrice = 0.0.obs;
 
   fetchPrice(String coin) async {
     isLoading.value = true;
@@ -25,6 +28,9 @@ class Controller extends GetxController {
         var json = jsonDecode(jsonString);
         var a = List<double>.from(json['actual_price']);
         var p = List<double>.from(json['predicted_price']);
+        maxPrice.value = findMax(a);
+        minPrice.value = findMin(a);
+        // maxPrice =
         actualPriceList.value = a
             .mapIndexed(((index, element) =>
                 PricePoint(x: index.toDouble(), y: element)))

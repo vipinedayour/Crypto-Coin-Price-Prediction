@@ -65,7 +65,7 @@ class CryptoCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: EdgeInsets.only(left: 5),
+                padding: const EdgeInsets.only(left: 5),
                 child: Row(
                   children: [
                     Icon(
@@ -85,15 +85,7 @@ class CryptoCard extends StatelessWidget {
               ),
               Row(
                 children: [
-                  status
-                      ? Icon(
-                          Icons.arrow_drop_up,
-                          color: kTextGreen,
-                        )
-                      : Icon(
-                          Icons.arrow_drop_down,
-                          color: kTextRed,
-                        ),
+                  status ? UpArrow() : DownArrow(),
                   Text(
                     price,
                     style: TextStyle(

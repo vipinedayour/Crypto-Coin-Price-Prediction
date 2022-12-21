@@ -1,11 +1,9 @@
-import 'package:crypto_price_prediction/model/price_point.dart';
+import 'package:crypto_price_prediction/functions/stat.dart';
 import 'package:crypto_price_prediction/utilities/constants.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controller/controller.dart';
-import '../model/line_titles.dart';
 import '../utilities/custom_legend.dart';
 import '../utilities/line_graph.dart';
 
@@ -38,6 +36,9 @@ class Chart extends StatelessWidget {
                         CustomLegend(),
                       ]),
                     ),
+                  ),
+                  SizedBox(
+                    height: 50,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -107,8 +108,23 @@ class Chart extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Expanded(
-                    child: Container(),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        child: Text(
+                          controller.maxPrice.value.toStringAsFixed(2),
+                        ),
+                      ),
+                      Container(
+                        child: Text(
+                          controller.minPrice.value.toStringAsFixed(2),
+                        ),
+                      ),
+                    ],
                   )
                 ],
               );

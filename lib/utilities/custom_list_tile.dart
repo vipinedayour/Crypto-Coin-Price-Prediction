@@ -1,7 +1,5 @@
 import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class CustomListTile extends StatelessWidget {
   final String title;

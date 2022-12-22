@@ -1,13 +1,11 @@
-import 'package:crypto_price_prediction/controller/details_controller.dart';
-import 'package:crypto_price_prediction/functions/stat.dart';
+import 'package:crypto_price_prediction/line%20chart/graph_changer.dart';
 import 'package:crypto_price_prediction/model/details.dart';
 import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controller.dart';
-import '../utilities/custom_legend.dart';
+import '../line chart/custom_legend.dart';
 import '../line chart/line_graph.dart';
 
 class Chart extends StatelessWidget {
@@ -34,15 +32,11 @@ class Chart extends StatelessWidget {
               return ListView(
                 scrollDirection: Axis.vertical,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Stack(children: [
-                      LineGraph(),
+                  Stack(
+                    children: [
                       CustomLegend(),
-                    ]),
-                  ),
-                  SizedBox(
-                    height: 50,
+                      LineGraph(),
+                    ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -132,86 +126,36 @@ class Chart extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 40,
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.red,
+                    margin: EdgeInsets.all(5),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 50),
-                    child: Text(
-                      "Analysis",
-                      style: GoogleFonts.lato(
-                          fontSize: 30, fontWeight: FontWeight.w700),
-                    ),
+                    width: 50,
+                    height: 50,
+                    color: Colors.red,
+                    margin: EdgeInsets.all(5),
                   ),
-                  SizedBox(
-                    height: 20,
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.red,
+                    margin: EdgeInsets.all(5),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        width: 150,
-                        decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            border: Border.all(color: Colors.blueGrey),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              Text(
-                                "Max.price",
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                controller.maxPrice.value.toStringAsFixed(3) +
-                                    "  \$",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 150,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(color: Colors.blueGrey),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              Text(
-                                "Min.price",
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                controller.minPrice.value.toStringAsFixed(3) +
-                                    "  \$",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                    fontStyle: FontStyle.normal),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.red,
+                    margin: EdgeInsets.all(5),
                   ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.red,
+                    margin: EdgeInsets.all(5),
+                  )
                 ],
               );
             }
@@ -221,3 +165,152 @@ class Chart extends StatelessWidget {
     );
   }
 }
+
+
+
+
+// Column(
+//                 children: [
+//                   Expanded(
+//                     flex: 5,
+//                     child: Stack(
+//                       children: [
+//                         CustomLegend(),
+//                         LineGraph(),
+//                       ],
+//                     ),
+//                   ),
+//                   Expanded(
+//                       flex: 1,
+//                       child: Row(
+//                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                         children: [
+//                           TextButton(
+//                             onPressed: () {
+//                               controller.minX.value = 0;
+//                             },
+//                             style: ButtonStyle(
+//                               backgroundColor: controller.minX.value == 0
+//                                   ? MaterialStateProperty.all(Colors.grey[800])
+//                                   : MaterialStateProperty.all(Colors.grey[900]),
+//                               shape: MaterialStateProperty.all<
+//                                   RoundedRectangleBorder>(
+//                                 RoundedRectangleBorder(
+//                                   borderRadius: BorderRadius.circular(18.0),
+//                                 ),
+//                               ),
+//                             ),
+//                             child: const Text(
+//                               "1y",
+//                               style:
+//                                   TextStyle(fontSize: 15, color: Colors.white),
+//                             ),
+//                           ),
+//                           TextButton(
+//                             onPressed: () {
+//                               controller.minX.value =
+//                                   controller.maxX.value - 90;
+//                             },
+//                             style: ButtonStyle(
+//                               backgroundColor: controller.minX.value ==
+//                                       controller.maxX.value - 90
+//                                   ? MaterialStateProperty.all(Colors.grey[800])
+//                                   : MaterialStateProperty.all(Colors.grey[900]),
+//                               shape: MaterialStateProperty.all<
+//                                   RoundedRectangleBorder>(
+//                                 RoundedRectangleBorder(
+//                                   borderRadius: BorderRadius.circular(18.0),
+//                                 ),
+//                               ),
+//                             ),
+//                             child: const Text(
+//                               "3m",
+//                               style:
+//                                   TextStyle(fontSize: 15, color: Colors.white),
+//                             ),
+//                           ),
+//                           TextButton(
+//                             onPressed: () {
+//                               controller.minX.value =
+//                                   controller.maxX.value - 30;
+//                             },
+//                             style: ButtonStyle(
+//                               backgroundColor: controller.minX.value ==
+//                                       controller.maxX.value - 30
+//                                   ? MaterialStateProperty.all(Colors.grey[800])
+//                                   : MaterialStateProperty.all(Colors.grey[900]),
+//                               shape: MaterialStateProperty.all<
+//                                   RoundedRectangleBorder>(
+//                                 RoundedRectangleBorder(
+//                                   borderRadius: BorderRadius.circular(18.0),
+//                                 ),
+//                               ),
+//                             ),
+//                             child: Text(
+//                               "1m",
+//                               style:
+//                                   TextStyle(fontSize: 15, color: Colors.white),
+//                             ),
+//                           ),
+//                           TextButton(
+//                             onPressed: () {
+//                               controller.minX.value = controller.maxX.value - 7;
+//                             },
+//                             style: ButtonStyle(
+//                               backgroundColor: controller.minX.value ==
+//                                       controller.maxX.value - 7
+//                                   ? MaterialStateProperty.all(Colors.grey[800])
+//                                   : MaterialStateProperty.all(Colors.grey[900]),
+//                               shape: MaterialStateProperty.all<
+//                                   RoundedRectangleBorder>(
+//                                 RoundedRectangleBorder(
+//                                   borderRadius: BorderRadius.circular(18.0),
+//                                 ),
+//                               ),
+//                             ),
+//                             child: Text(
+//                               "1w",
+//                               style:
+//                                   TextStyle(fontSize: 15, color: Colors.white),
+//                             ),
+//                           ),
+//                         ],
+//                       )),
+//                   Expanded(
+//                       flex: 3,
+//                       child: ListView(
+//                         children: [
+//                           Container(
+//                             width: 50,
+//                             height: 50,
+//                             color: Colors.red,
+//                             margin: EdgeInsets.all(5),
+//                           ),
+//                           Container(
+//                             width: 50,
+//                             height: 50,
+//                             color: Colors.red,
+//                             margin: EdgeInsets.all(5),
+//                           ),
+//                           Container(
+//                             width: 50,
+//                             height: 50,
+//                             color: Colors.red,
+//                             margin: EdgeInsets.all(5),
+//                           ),
+//                           Container(
+//                             width: 50,
+//                             height: 50,
+//                             color: Colors.red,
+//                             margin: EdgeInsets.all(5),
+//                           ),
+//                           Container(
+//                             width: 50,
+//                             height: 50,
+//                             color: Colors.red,
+//                             margin: EdgeInsets.all(5),
+//                           ),
+//                         ],
+//                       ))
+//                 ],
+//               );

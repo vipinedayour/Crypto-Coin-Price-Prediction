@@ -7,12 +7,13 @@ import '../controller/controller.dart';
 import 'line_titles.dart';
 
 class LineGraph extends StatelessWidget {
+  // final controller = Get.find<Controller>();
   final controller = Get.put(Controller());
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return Container(
+      height: 500,
       child: LineChart(
         LineChartData(
           minX: controller.minX.toDouble(),

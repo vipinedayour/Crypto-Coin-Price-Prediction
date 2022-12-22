@@ -11,7 +11,7 @@ class LineGraph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 400,
       child: LineChart(
         LineChartData(

@@ -38,9 +38,9 @@ class CryptoCard extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           builder: ((context) => BottomCard(
                 cryptoDetail: cryptoDetail,
-                symbol: symbol,
-                price: price,
-                name: name,
+                symbol: cryptoDetail.symbol.toString(),
+                price: cryptoDetail.priceUsd.toString(),
+                name: cryptoDetail.name.toString(),
                 icon: icon,
                 status: status,
                 rank: rank,

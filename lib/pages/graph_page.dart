@@ -1,5 +1,3 @@
-import 'package:crypto_price_prediction/controller/details_controller.dart';
-import 'package:crypto_price_prediction/functions/stat.dart';
 import 'package:crypto_price_prediction/model/details.dart';
 import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:flutter/material.dart';

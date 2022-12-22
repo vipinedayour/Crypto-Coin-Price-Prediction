@@ -11,7 +11,6 @@ class DetailsController extends GetxController {
   var dogecoin = Data().obs;
   var usdt = Data().obs;
   var isLoading = true.obs;
-  var sample = Data().obs;
 
   fetchDetails() async {
     isLoading.value = true;

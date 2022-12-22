@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:crypto_price_prediction/model/details.dart';
 import 'package:crypto_price_prediction/pages/home_page.dart';
 import 'package:crypto_price_prediction/pages/graph_page.dart';
+import 'package:crypto_price_prediction/pages/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,12 +25,14 @@ class MyApp extends StatelessWidget {
         getPages: [
           GetPage(name: "/home", page: () => HomePage()),
           GetPage(
-              name: "/chart",
-              page: () => Chart(
-                    cryptoDetails: Data(),
-                  ))
+            name: "/chart",
+            page: () => Chart(
+              cryptoDetails: Data(),
+            ),
+          ),
+          GetPage(name: "/splash", page:(() => SplashScreen()))
         ],
-        initialRoute: "/home");
+        initialRoute: "/splash");
   }
 }
 

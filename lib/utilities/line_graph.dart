@@ -12,72 +12,68 @@ class LineGraph extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 400,
-      child: LineChart(
-        LineChartData(
-          clipData: FlClipData.all(),
-          minX: controller.minX.toDouble(),
-          maxX: controller.maxX.toDouble(),
-          titlesData: LineTitles.getTitleData(),
-          lineBarsData: [
-            LineChartBarData(
-              spots: controller.actualPriceList
-                  .map((element) => FlSpot(element.x, element.y))
-                  .toList(),
-              isCurved: true,
-              color: kActualPriceColor,
-              barWidth: 3,
-              dotData: FlDotData(show: false),
-              belowBarData: BarAreaData(
-                show: true,
-                gradient: LinearGradient(
-                  begin: Alignment.center,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Color.fromARGB(62, 14, 250, 211),
-                    Color.fromARGB(0, 14, 250, 211)
-                  ],
+        height: 400,
+        child: LineChart(
+          LineChartData(
+            clipData: FlClipData.all(),
+            minX: controller.minX.toDouble(),
+            maxX: controller.maxX.toDouble(),
+            titlesData: LineTitles.getTitleData(),
+            lineBarsData: [
+              LineChartBarData(
+                spots: controller.actualPriceList
+                    .map((element) => FlSpot(element.x, element.y))
+                    .toList(),
+                isCurved: true,
+                color: kActualPriceColor,
+                barWidth: 3,
+                dotData: FlDotData(show: false),
+                belowBarData: BarAreaData(
+                  show: true,
+                  gradient: LinearGradient(
+                    begin: Alignment.center,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color.fromARGB(62, 14, 250, 211),
+                      Color.fromARGB(0, 14, 250, 211)
+                    ],
+                  ),
+                  color: Color.fromARGB(29, 14, 250, 211),
                 ),
-                color: Color.fromARGB(29, 14, 250, 211),
-
-
               ),
-              color: Color.fromARGB(29, 14, 250, 211),
-            ),
-          ),
-          LineChartBarData(
-            spots: controller.predictedPriceList
-                .map((element) => FlSpot(element.x, element.y))
-                .toList(),
-            isCurved: true,
-            color: kPredictedPriceColor,
-            barWidth: 3,
-            dotData: FlDotData(show: false),
-            belowBarData: BarAreaData(
+              LineChartBarData(
+                spots: controller.predictedPriceList
+                    .map((element) => FlSpot(element.x, element.y))
+                    .toList(),
+                isCurved: true,
+                color: kPredictedPriceColor,
+                barWidth: 3,
+                dotData: FlDotData(show: false),
+                belowBarData: BarAreaData(
+                  show: false,
+                  color: Color.fromARGB(99, 250, 144, 14),
+                ),
+              ),
+            ],
+            gridData: FlGridData(
               show: false,
-              color: Color.fromARGB(99, 250, 144, 14),
+              // getDrawingHorizontalLine: (value) => FlLine(
+              //   color: const Color(0xff37343d),
+              //   strokeWidth: 1,
+              // ),
+              // drawVerticalLine: true,
+              // getDrawingVerticalLine: (value) => FlLine(
+              //   color: const Color(0xff37343d),
+              //   strokeWidth: 1,
+              // ),
+            ),
+            borderData: FlBorderData(
+              show: false,
+              // border: Border.all(
+              //   color: const Color(0xff37343d),
+              // ),
             ),
           ),
-        ],
-        gridData: FlGridData(
-          show: false,
-          // getDrawingHorizontalLine: (value) => FlLine(
-          //   color: const Color(0xff37343d),
-          //   strokeWidth: 1,
-          // ),
-          // drawVerticalLine: true,
-          // getDrawingVerticalLine: (value) => FlLine(
-          //   color: const Color(0xff37343d),
-          //   strokeWidth: 1,
-          // ),
-        ),
-        borderData: FlBorderData(
-          show: false,
-          // border: Border.all(
-          //   color: const Color(0xff37343d),
-          // ),
-        ),
-      ),
-    );
+        ));
   }
 }

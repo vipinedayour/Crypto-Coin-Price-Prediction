@@ -1,12 +1,14 @@
-
 import 'package:crypto_price_prediction/line%20chart/graph_changer.dart';
 
 import 'package:crypto_price_prediction/model/details.dart';
 import 'package:crypto_price_prediction/utilities/constants.dart';
+import 'package:crypto_price_prediction/utilities/details_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controller/controller.dart';
+import '../functions/conversion.dart';
+import '../functions/round.dart';
 import '../line chart/custom_legend.dart';
 import '../line chart/line_graph.dart';
 
@@ -128,36 +130,22 @@ class Chart extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Container(
-                    width: 50,
-                    height: 50,
-                    color: Colors.red,
-                    margin: EdgeInsets.all(5),
+                  DetailsCard(
+                    item: "Price",
+                    value: roundIt(cryptoDetails.priceUsd.toString()),
                   ),
-                  Container(
-                    width: 50,
-                    height: 50,
-                    color: Colors.red,
-                    margin: EdgeInsets.all(5),
+                  DetailsCard(
+                    item: "Rank",
+                    value: cryptoDetails.rank.toString(),
                   ),
-                  Container(
-                    width: 50,
-                    height: 50,
-                    color: Colors.red,
-                    margin: EdgeInsets.all(5),
+                  DetailsCard(
+                    item: "Change percent",
+                    value: roundIt(cryptoDetails.changePercent24Hr.toString()),
                   ),
-                  Container(
-                    width: 50,
-                    height: 50,
-                    color: Colors.red,
-                    margin: EdgeInsets.all(5),
+                  DetailsCard(
+                    item: "Market Cap USD",
+                    value: convertIt(cryptoDetails.marketCapUsd.toString()),
                   ),
-                  Container(
-                    width: 50,
-                    height: 50,
-                    color: Colors.red,
-                    margin: EdgeInsets.all(5),
-                  )
                 ],
               );
             }

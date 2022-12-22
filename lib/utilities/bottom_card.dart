@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controller/controller.dart';
+import '../model/details.dart';
 import 'constants.dart';
 
 class BottomCard extends StatelessWidget {
   final controller = Get.put(Controller());
 
+  final Data cryptoDetail;
   final String symbol;
   final String name;
   final String price;
@@ -20,6 +22,7 @@ class BottomCard extends StatelessWidget {
   final String id;
   BottomCard(
       {super.key,
+      required this.cryptoDetail,
       required this.symbol,
       required this.name,
       required this.icon,
@@ -123,18 +126,20 @@ class BottomCard extends StatelessWidget {
               height: 30,
             ),
             TextButton(
-                onPressed: () {
-                  controller.fetchPrice(id);
-                  print("pressed");
-                  Get.to(() => Chart());
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.white,
-                ),
-                child: Text(
-                  "PRICE HISTORY",
-                  style: TextStyle(color: Colors.black),
-                ))
+              onPressed: () {
+                controller.fetchPrice(id);
+
+                print("pressed");
+                Get.to(() => Chart(cryptoDetails: cryptoDetail,));
+              },
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.white,
+              ),
+              child: Text(
+                "PRICE HISTORY",
+                style: TextStyle(color: Colors.black),
+              ),
+            )
           ],
         ),
       ),

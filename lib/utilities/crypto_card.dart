@@ -3,32 +3,22 @@ import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:crypto_price_prediction/utilities/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 
+import '../functions/round.dart';
+import '../functions/status.dart';
 import '../model/details.dart';
 
 class CryptoCard extends StatelessWidget {
-  final String symbol;
-  final String name;
-  final String price;
   final IconData icon;
-  final bool status;
-  final String rank;
-  final String marketCapUsd;
-  final String id;
   final Data cryptoDetail;
-  const CryptoCard(
-      {super.key,
-      required this.cryptoDetail,
-      required this.symbol,
-      required this.name,
-      required this.icon,
-      required this.price,
-      required this.status,
-      required this.rank,
-      required this.id,
-      required this.marketCapUsd});
+  const CryptoCard({
+    super.key,
+    required this.cryptoDetail,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
+    bool status = marketStatus(cryptoDetail.changePercent24Hr.toString());
     return GestureDetector(
       onTap: () {
         showModalBottomSheet(
@@ -38,14 +28,8 @@ class CryptoCard extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           builder: ((context) => BottomCard(
                 cryptoDetail: cryptoDetail,
-                symbol: cryptoDetail.symbol.toString(),
-                price: cryptoDetail.priceUsd.toString(),
-                name: cryptoDetail.name.toString(),
                 icon: icon,
                 status: status,
-                rank: rank,
-                marketCapUsd: marketCapUsd,
-                id: id,
               )),
         );
       },
@@ -81,20 +65,31 @@ class CryptoCard extends StatelessWidget {
                       width: 20,
                     ),
                     CustomListTile(
-                      title: symbol,
-                      subtitle: name,
+                      title: cryptoDetail.symbol.toString(),
+                      subtitle: cryptoDetail.name.toString(),
                       crossAxisAlignment: CrossAxisAlignment.start,
                     )
                   ],
                 ),
               ),
-              Row(
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  status ? UpArrow() : DownArrow(),
                   Text(
-                    price,
-                    style: TextStyle(
-                        color: status ? kTextGreen : kTextRed, fontSize: 18),
+                    "\$ ${roundIt(cryptoDetail.priceUsd.toString())}",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  Row(
+                    children: [
+                      status ? UpArrow() : DownArrow(),
+                      Text(
+                        roundIt(cryptoDetail.changePercent24Hr.toString()),
+                        style: TextStyle(
+                            color: status ? kTextGreen : kTextRed,
+                            fontSize: 15),
+                      ),
+                    ],
                   ),
                 ],
               )

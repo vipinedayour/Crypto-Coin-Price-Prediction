@@ -12,52 +12,29 @@ class BottomCard extends StatelessWidget {
   final controller = Get.put(Controller());
 
   final Data cryptoDetail;
-  final String symbol;
-  final String name;
-  final String price;
   final IconData icon;
   final bool status;
-  final String rank;
-  final String marketCapUsd;
-  final String id;
-  BottomCard(
-      {super.key,
-      required this.cryptoDetail,
-      required this.symbol,
-      required this.name,
-      required this.icon,
-      required this.price,
-      required this.status,
-      required this.rank,
-      required this.marketCapUsd,
-      required this.id});
+  BottomCard({
+    super.key,
+    required this.cryptoDetail,
+    required this.icon,
+    required this.status,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [status ? kCardGreen : kCardRed, kCardBgColor],
-          ),
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30.0),
-            topRight: Radius.circular(30.0),
-          ),
-          boxShadow: [
-            // BoxShadow(
-            //   color: Color.fromARGB(255, 243, 85, 138),
-            //   spreadRadius: 0.5,
-            //   blurRadius: 50,
-            // ),
-
-            // BoxShadow(
-            //   color: Colors.pink,
-            //   spreadRadius: -4,
-            //   blurRadius: 5,
-            // )
-          ]),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [status ? kCardGreen : kCardRed, kCardBgColor],
+        ),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(30.0),
+          topRight: Radius.circular(30.0),
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
@@ -71,23 +48,20 @@ class BottomCard extends StatelessWidget {
               height: 25,
             ),
             CustomListTile(
-              title: name,
-              subtitle: symbol,
+              title: cryptoDetail.name.toString(),
+              subtitle: cryptoDetail.symbol.toString(),
               titleSize: 30,
             ),
             const SizedBox(
               height: 30,
             ),
-            // const SizedBox(
-            //   height: 25,
-            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Expanded(
                   child: CustomListTile(
                     title: "RANK",
-                    subtitle: rank,
+                    subtitle: cryptoDetail.rank.toString(),
                     crossAxisAlignment: CrossAxisAlignment.center,
                     titleSize: 14,
                     subtitleSize: 20,
@@ -99,7 +73,8 @@ class BottomCard extends StatelessWidget {
                 Expanded(
                   child: CustomListTile(
                     title: "LIVE PRICE",
-                    subtitle: '\$ ' + convertIt(price),
+                    subtitle:
+                        '\$ ${convertIt(cryptoDetail.priceUsd.toString())}',
                     crossAxisAlignment: CrossAxisAlignment.center,
                     titleSize: 14,
                     subtitleSize: 20,
@@ -111,7 +86,7 @@ class BottomCard extends StatelessWidget {
                 Expanded(
                   child: CustomListTile(
                     title: "MARKET CAP",
-                    subtitle: convertIt(marketCapUsd),
+                    subtitle: convertIt(cryptoDetail.marketCapUsd.toString()),
                     crossAxisAlignment: CrossAxisAlignment.center,
                     titleSize: 14,
                     subtitleSize: 20,
@@ -127,10 +102,12 @@ class BottomCard extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                controller.fetchPrice(id);
+                controller.fetchPrice(cryptoDetail.id.toString());
 
                 print("pressed");
-                Get.to(() => Chart(cryptoDetails: cryptoDetail,));
+                Get.to(() => Chart(
+                      cryptoDetails: cryptoDetail,
+                    ));
               },
               style: TextButton.styleFrom(
                 backgroundColor: Colors.white,

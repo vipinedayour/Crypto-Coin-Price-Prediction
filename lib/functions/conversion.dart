@@ -1,3 +1,5 @@
+import 'package:crypto_price_prediction/functions/round.dart';
+
 String convertIt(String value) {
   double a = double.parse(value);
   if (a > 1000000000000) {
@@ -13,6 +15,6 @@ String convertIt(String value) {
     int result = (a / 1000).round();
     return "$result K";
   } else {
-    return value;
+    return roundIt(value);
   }
 }

@@ -33,28 +33,30 @@ class BottomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [status ? kCardGreen : kCardRed, kCardBgColor],
-          ),
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30.0),
-            topRight: Radius.circular(30.0),
-          ),
-          boxShadow: [
-            // BoxShadow(
-            //   color: Color.fromARGB(255, 243, 85, 138),
-            //   spreadRadius: 0.5,
-            //   blurRadius: 50,
-            // ),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [status ? kCardGreen : kCardRed, kCardBgColor],
+        ),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(30.0),
+          topRight: Radius.circular(30.0),
+        ),
+        // boxShadow: [
+        // BoxShadow(
+        //   color: Color.fromARGB(255, 243, 85, 138),
+        //   spreadRadius: 0.5,
+        //   blurRadius: 50,
+        // ),
 
-            // BoxShadow(
-            //   color: Colors.pink,
-            //   spreadRadius: -4,
-            //   blurRadius: 5,
-            // )
-          ]),
+        // BoxShadow(
+        //   color: Colors.pink,
+        //   spreadRadius: -4,
+        //   blurRadius: 5,0bn c0.
+
+        // )
+        // ]
+      ),
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(

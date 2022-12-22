@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 import '../controller/controller.dart';
 import '../utilities/custom_legend.dart';
-import '../utilities/line_graph.dart';
+import '../line chart/line_graph.dart';
 
 class Chart extends StatelessWidget {
   final controller = Get.put(Controller());
@@ -45,11 +45,31 @@ class Chart extends StatelessWidget {
                     children: [
                       TextButton(
                         onPressed: () {
-                          controller.minX.value = 20;
-                          controller.maxX.value = 110;
+                          controller.minX.value = 0;
                         },
                         style: ButtonStyle(
-                          backgroundColor: controller.minX.value == 20
+                          backgroundColor: controller.minX.value == 0
+                              ? MaterialStateProperty.all(Colors.grey[800])
+                              : MaterialStateProperty.all(Colors.grey[900]),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ),
+                          ),
+                        ),
+                        child: const Text(
+                          "1y",
+                          style: TextStyle(fontSize: 15, color: Colors.white),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          controller.minX.value = controller.maxX.value - 90;
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: controller.minX.value ==
+                                  controller.maxX.value - 90
                               ? MaterialStateProperty.all(Colors.grey[800])
                               : MaterialStateProperty.all(Colors.grey[900]),
                           shape:
@@ -66,11 +86,11 @@ class Chart extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () {
-                          controller.minX.value = 80;
-                          controller.maxX.value = 110;
+                          controller.minX.value = controller.maxX.value - 30;
                         },
                         style: ButtonStyle(
-                          backgroundColor: controller.minX.value == 80
+                          backgroundColor: controller.minX.value ==
+                                  controller.maxX.value - 30
                               ? MaterialStateProperty.all(Colors.grey[800])
                               : MaterialStateProperty.all(Colors.grey[900]),
                           shape:
@@ -87,13 +107,13 @@ class Chart extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () {
-                          controller.minX.value = 103;
-                          controller.maxX.value = 110;
+                          controller.minX.value = controller.maxX.value - 7;
                         },
                         style: ButtonStyle(
-                          backgroundColor: controller.minX.value == 103
-                              ? MaterialStateProperty.all(Colors.grey[800])
-                              : MaterialStateProperty.all(Colors.grey[900]),
+                          backgroundColor:
+                              controller.minX.value == controller.maxX.value - 7
+                                  ? MaterialStateProperty.all(Colors.grey[800])
+                                  : MaterialStateProperty.all(Colors.grey[900]),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class LineTitles {
   static getTitleData() => FlTitlesData(
-        show: false,
+        show: true,
         bottomTitles: AxisTitles(
           // axisNameWidget: Text(
           //   "Days",
@@ -13,11 +13,12 @@ class LineTitles {
           sideTitles: SideTitles(
             showTitles: true,
             reservedSize: 30,
-            interval: 1,
+            interval: 30,
             getTitlesWidget: bottomTitleWidgets,
           ),
         ),
         leftTitles: AxisTitles(
+          drawBehindEverything: true,
           // axisNameWidget: Text(
           //   "Price",
           //   style: TextStyle(fontSize: 20),
@@ -40,6 +41,7 @@ class LineTitles {
 }
 
 Widget bottomTitleWidgets(double value, TitleMeta meta) {
+  print(value);
   const style = TextStyle(
     color: Color(0xff68737d),
     fontWeight: FontWeight.bold,
@@ -61,6 +63,30 @@ Widget bottomTitleWidgets(double value, TitleMeta meta) {
       break;
     case 120:
       text = const Text('120d', style: style);
+      break;
+    case 150:
+      text = const Text('150d', style: style);
+      break;
+    case 180:
+      text = const Text('180d', style: style);
+      break;
+    case 210:
+      text = const Text('210d', style: style);
+      break;
+    case 240:
+      text = const Text('240d', style: style);
+      break;
+    case 270:
+      text = const Text('270d', style: style);
+      break;
+    case 300:
+      text = const Text('300d', style: style);
+      break;
+    case 330:
+      text = const Text('330d', style: style);
+      break;
+    case 360:
+      text = const Text('360d', style: style);
       break;
     default:
       text = const Text('', style: style);

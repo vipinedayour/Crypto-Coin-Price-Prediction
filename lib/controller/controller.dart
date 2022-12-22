@@ -10,9 +10,10 @@ import '../model/price_point.dart';
 class Controller extends GetxController {
   var actualPriceList = [].obs;
   var predictedPriceList = [].obs;
+  var dateList = [].obs;
   var isLoading = true.obs;
-  var minX = 20.obs;
-  var maxX = 110.obs;
+  var minX = 0.obs;
+  var maxX = 0.obs;
   var maxPrice = 0.0.obs;
   var minPrice = 0.0.obs;
 
@@ -26,16 +27,17 @@ class Controller extends GetxController {
       if (response.statusCode == 200) {
         var jsonString = response.body;
         var json = jsonDecode(jsonString);
-        var a = List<double>.from(json['actual_price']);
-        var p = List<double>.from(json['predicted_price']);
-        maxPrice.value = findMax(a);
-        minPrice.value = findMin(a);
-        // maxPrice =
-        actualPriceList.value = a
+        var actualPrice = List<double>.from(json['actual_price']);
+        var predictedPrice = List<double>.from(json['predicted_price']);
+        dateList.value = json['date'];
+        maxPrice.value = findMax(actualPrice);
+        minPrice.value = findMin(actualPrice);
+        maxX.value = actualPrice.length - 1;
+        actualPriceList.value = actualPrice
             .mapIndexed(((index, element) =>
                 PricePoint(x: index.toDouble(), y: element)))
             .toList();
-        predictedPriceList.value = p
+        predictedPriceList.value = predictedPrice
             .mapIndexed(((index, element) =>
                 PricePoint(x: index.toDouble(), y: element)))
             .toList();

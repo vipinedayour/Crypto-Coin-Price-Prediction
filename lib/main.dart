@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:crypto_price_prediction/model/details.dart';
 import 'package:crypto_price_prediction/pages/home_page.dart';
 import 'package:crypto_price_prediction/pages/graph_page.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,11 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.dark().copyWith(canvasColor: Colors.transparent),
         getPages: [
           GetPage(name: "/home", page: () => HomePage()),
-          GetPage(name: "/chart", page: () => Chart())
+          GetPage(
+              name: "/chart",
+              page: () => Chart(
+                    cryptoDetails: Data(),
+                  ))
         ],
         initialRoute: "/home");
   }

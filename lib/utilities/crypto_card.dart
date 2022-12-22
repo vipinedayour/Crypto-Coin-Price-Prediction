@@ -3,6 +3,8 @@ import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:crypto_price_prediction/utilities/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 
+import '../model/details.dart';
+
 class CryptoCard extends StatelessWidget {
   final String symbol;
   final String name;
@@ -12,8 +14,10 @@ class CryptoCard extends StatelessWidget {
   final String rank;
   final String marketCapUsd;
   final String id;
+  final Data cryptoDetail;
   const CryptoCard(
       {super.key,
+      required this.cryptoDetail,
       required this.symbol,
       required this.name,
       required this.icon,
@@ -33,6 +37,7 @@ class CryptoCard extends StatelessWidget {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           builder: ((context) => BottomCard(
+                cryptoDetail: cryptoDetail,
                 symbol: symbol,
                 price: price,
                 name: name,

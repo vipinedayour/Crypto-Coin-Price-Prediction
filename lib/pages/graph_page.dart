@@ -1,7 +1,10 @@
+import 'package:crypto_price_prediction/controller/details_controller.dart';
 import 'package:crypto_price_prediction/functions/stat.dart';
+import 'package:crypto_price_prediction/model/details.dart';
 import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controller.dart';
 import '../utilities/custom_legend.dart';
@@ -9,6 +12,9 @@ import '../line chart/line_graph.dart';
 
 class Chart extends StatelessWidget {
   final controller = Get.put(Controller());
+  Data cryptoDetails;
+  Chart({required this.cryptoDetails});
+
   final List<Color> gradientColors = [
     const Color(0xff23b6e6),
     const Color(0xff02d39a)
@@ -25,17 +31,15 @@ class Chart extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else {
-              return Column(
+              return ListView(
+                scrollDirection: Axis.vertical,
                 children: [
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Stack(children: [
-                        LineGraph(),
-                        CustomLegend(),
-                      ]),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Stack(children: [
+                      LineGraph(),
+                      CustomLegend(),
+                    ]),
                   ),
                   SizedBox(
                     height: 50,
@@ -131,21 +135,83 @@ class Chart extends StatelessWidget {
                   SizedBox(
                     height: 40,
                   ),
+                  Container(
+                    margin: EdgeInsets.only(left: 50),
+                    child: Text(
+                      "Analysis",
+                      style: GoogleFonts.lato(
+                          fontSize: 30, fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
-                        child: Text(
-                          controller.maxPrice.value.toStringAsFixed(2),
+                        width: 150,
+                        decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            border: Border.all(color: Colors.blueGrey),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text(
+                                "Max.price",
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                controller.maxPrice.value.toStringAsFixed(3) +
+                                    "  \$",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Container(
-                        child: Text(
-                          controller.minPrice.value.toStringAsFixed(2),
+                        width: 150,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(color: Colors.blueGrey),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text(
+                                "Min.price",
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                controller.minPrice.value.toStringAsFixed(3) +
+                                    "  \$",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                    fontStyle: FontStyle.normal),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
+                      )
                     ],
-                  )
+                  ),
                 ],
               );
             }

@@ -11,30 +11,36 @@ class LineGraph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LineChart(
-      LineChartData(
-        clipData: FlClipData.all(),
-        minX: controller.minX.toDouble(),
-        maxX: controller.maxX.toDouble(),
-        titlesData: LineTitles.getTitleData(),
-        lineBarsData: [
-          LineChartBarData(
-            spots: controller.actualPriceList
-                .map((element) => FlSpot(element.x, element.y))
-                .toList(),
-            isCurved: true,
-            color: kActualPriceColor,
-            barWidth: 3,
-            dotData: FlDotData(show: false),
-            belowBarData: BarAreaData(
-              show: true,
-              gradient: LinearGradient(
-                begin: Alignment.center,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Color.fromARGB(62, 14, 250, 211),
-                  Color.fromARGB(0, 14, 250, 211)
-                ],
+    return SizedBox(
+      height: 400,
+      child: LineChart(
+        LineChartData(
+          clipData: FlClipData.all(),
+          minX: controller.minX.toDouble(),
+          maxX: controller.maxX.toDouble(),
+          titlesData: LineTitles.getTitleData(),
+          lineBarsData: [
+            LineChartBarData(
+              spots: controller.actualPriceList
+                  .map((element) => FlSpot(element.x, element.y))
+                  .toList(),
+              isCurved: true,
+              color: kActualPriceColor,
+              barWidth: 3,
+              dotData: FlDotData(show: false),
+              belowBarData: BarAreaData(
+                show: true,
+                gradient: LinearGradient(
+                  begin: Alignment.center,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color.fromARGB(62, 14, 250, 211),
+                    Color.fromARGB(0, 14, 250, 211)
+                  ],
+                ),
+                color: Color.fromARGB(29, 14, 250, 211),
+
+
               ),
               color: Color.fromARGB(29, 14, 250, 211),
             ),

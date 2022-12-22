@@ -18,6 +18,19 @@ const Color kTextGreen = Color.fromARGB(255, 13, 188, 120);
 const Color kTextRed = Color.fromARGB(255, 227, 64, 86);
 const Color kActualPriceColor = Color.fromARGB(255, 14, 250, 211);
 const Color kPredictedPriceColor = Color.fromARGB(255, 250, 144, 14);
+const kSplashscreenGradient = BoxDecoration(
+  gradient: LinearGradient(
+    begin: Alignment.topRight,
+    end: Alignment.bottomLeft,
+    colors: [
+      Colors.yellow,
+      Colors.red,
+    ],
+  ),
+);
+
+const kSplashscreenLogoTextStyle =
+    TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w300);
 
 class DownArrow extends StatelessWidget {
   const DownArrow({
@@ -27,9 +40,9 @@ class DownArrow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Icon(
-        Icons.arrow_drop_down,
-        color: kTextRed,
-      );
+      Icons.arrow_drop_down,
+      color: kTextRed,
+    );
   }
 }
 
@@ -41,8 +54,8 @@ class UpArrow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Icon(
-        Icons.arrow_drop_up,
-        color: kTextGreen,
-      );
+      Icons.arrow_drop_up,
+      color: kTextGreen,
+    );
   }
 }

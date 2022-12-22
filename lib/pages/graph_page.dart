@@ -1,4 +1,6 @@
+
 import 'package:crypto_price_prediction/line%20chart/graph_changer.dart';
+
 import 'package:crypto_price_prediction/model/details.dart';
 import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:flutter/material.dart';

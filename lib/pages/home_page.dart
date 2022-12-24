@@ -3,6 +3,7 @@ import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:crypto_price_prediction/utilities/crypto_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/details_controller.dart';
 
@@ -24,20 +25,41 @@ class HomePage extends StatelessWidget {
             );
           } else {
             return Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                Center(
+                  child: Text(
+                    'Coins',
+                    style: GoogleFonts.montserrat(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
                 CryptoCard(
                   cryptoDetail: detailsController.bitcoin.value,
                   icon: CryptoFontIcons.BTC,
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 CryptoCard(
                   cryptoDetail: detailsController.etherium.value,
                   icon: CryptoFontIcons.ETH,
                 ),
+                const SizedBox(
+                  height: 20,
+                ),
                 CryptoCard(
                   cryptoDetail: detailsController.dogecoin.value,
                   icon: CryptoFontIcons.DOGE,
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 CryptoCard(
                   cryptoDetail: detailsController.usdt.value,

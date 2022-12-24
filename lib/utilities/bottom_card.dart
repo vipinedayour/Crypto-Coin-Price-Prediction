@@ -3,6 +3,7 @@ import 'package:crypto_price_prediction/pages/graph_page.dart';
 import 'package:crypto_price_prediction/utilities/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controller.dart';
 import '../model/details.dart';
@@ -97,7 +98,7 @@ class BottomCard extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             TextButton(
@@ -114,7 +115,8 @@ class BottomCard extends StatelessWidget {
               ),
               child: Text(
                 "PRICE HISTORY",
-                style: TextStyle(color: Colors.black),
+                style:
+                    GoogleFonts.montserrat(fontSize: 16, color: Colors.black),
               ),
             )
           ],

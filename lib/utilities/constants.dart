@@ -18,16 +18,15 @@ const Color kTextGreen = Color.fromARGB(255, 13, 188, 120);
 const Color kTextRed = Color.fromARGB(255, 227, 64, 86);
 const Color kActualPriceColor = Color.fromARGB(255, 14, 250, 211);
 const Color kPredictedPriceColor = Color.fromARGB(255, 250, 144, 14);
-const kSplashscreenGradient = BoxDecoration(
-  gradient: LinearGradient(
-    begin: Alignment.topRight,
-    end: Alignment.bottomLeft,
-    colors: [
-      Colors.yellow,
-      Colors.red,
-    ],
-  ),
+const kSplashScreenColour = LinearGradient(
+  begin: Alignment.topRight,
+  end: Alignment.bottomLeft,
+  colors: [
+    Colors.yellow,
+    Colors.red,
+  ],
 );
+const kSplashscreenGradient = BoxDecoration(gradient: kSplashScreenColour);
 
 const kSplashscreenLogoTextStyle =
     TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w300);

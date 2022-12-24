@@ -16,8 +16,11 @@ class LineGraph extends StatelessWidget {
       height: 500,
       child: LineChart(
         LineChartData(
+          clipData: FlClipData.horizontal(),
+
           minX: controller.minX.toDouble(),
           maxX: controller.maxX.toDouble(),
+
           titlesData: LineTitles.getTitleData(),
           lineBarsData: [
             LineChartBarData(
@@ -63,6 +66,7 @@ class LineGraph extends StatelessWidget {
               strokeWidth: 1,
             ),
           ),
+
           // borderData: FlBorderData(
           //   show: true,
           //   border: Border.all(

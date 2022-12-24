@@ -1,5 +1,6 @@
 import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomListTile extends StatelessWidget {
   final String title;
@@ -12,8 +13,8 @@ class CustomListTile extends StatelessWidget {
   final Color titleColor;
   final Color subtitleColor;
 
-  CustomListTile(
-      {required this.title,
+  const CustomListTile(
+      {super.key, required this.title,
       required this.subtitle,
       this.crossAxisAlignment = CrossAxisAlignment.center,
       this.titleSize = 18,
@@ -31,14 +32,15 @@ class CustomListTile extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(
-              color: titleColor,
-              fontSize: titleSize,
-              fontWeight: tileFontWeight),
+          style: GoogleFonts.montserrat(
+            color: titleColor,
+            fontSize: titleSize,
+            fontWeight: tileFontWeight,
+          ),
         ),
         Text(
           subtitle,
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
               color: subtitleColor,
               fontSize: subtitleSize,
               fontWeight: subtitleFontWeight),

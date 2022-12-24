@@ -1,5 +1,6 @@
 import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomLegend extends StatelessWidget {
   const CustomLegend({super.key});
@@ -13,28 +14,30 @@ class CustomLegend extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            children: const [
-              Icon(
+            children: [
+              const Icon(
                 Icons.call_missed_outgoing_sharp,
                 color: kPredictedPriceColor,
                 size: 20,
               ),
               Text(
                 "Predicted Price",
-                style: TextStyle(fontSize: 15),
+                style:
+                    GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
               )
             ],
           ),
           Row(
-            children: const [
-              Icon(
+            children: [
+              const Icon(
                 Icons.call_missed_outgoing_sharp,
                 color: kActualPriceColor,
                 size: 20,
               ),
               Text(
                 "Actual Price",
-                style: TextStyle(fontSize: 15),
+                style:
+                    GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
               )
             ],
           ),

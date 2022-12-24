@@ -5,6 +5,7 @@ import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:crypto_price_prediction/utilities/details_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controller.dart';
 import '../functions/conversion.dart';
@@ -15,7 +16,7 @@ import '../line chart/line_graph.dart';
 class Chart extends StatelessWidget {
   final controller = Get.put(Controller());
   Data cryptoDetails;
-  Chart({required this.cryptoDetails});
+  Chart({super.key, required this.cryptoDetails});
 
   final List<Color> gradientColors = [
     const Color(0xff23b6e6),
@@ -36,11 +37,30 @@ class Chart extends StatelessWidget {
               return ListView(
                 scrollDirection: Axis.vertical,
                 children: [
+                  const SizedBox(
+                    height: 30,
+                  ),
                   Stack(
                     children: [
-                      CustomLegend(),
-                      LineGraph(),
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: LineGraph(),
+                      ),
+                      const CustomLegend(),
+                      Center(
+                        child: Container(
+                          margin: EdgeInsets.only(top: 80),
+                          child: Text(
+                            cryptoDetails.name.toString().toUpperCase(),
+                            style: GoogleFonts.abel(
+                                fontSize: 24, fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                      ),
                     ],
+                  ),
+                  const SizedBox(
+                    height: 30,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -60,9 +80,10 @@ class Chart extends StatelessWidget {
                             ),
                           ),
                         ),
-                        child: const Text(
+                        child: Text(
                           "1y",
-                          style: TextStyle(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.montserrat(
+                              fontSize: 16, color: Colors.white),
                         ),
                       ),
                       TextButton(
@@ -81,9 +102,10 @@ class Chart extends StatelessWidget {
                             ),
                           ),
                         ),
-                        child: const Text(
+                        child: Text(
                           "3m",
-                          style: TextStyle(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.montserrat(
+                              fontSize: 16, color: Colors.white),
                         ),
                       ),
                       TextButton(
@@ -104,7 +126,8 @@ class Chart extends StatelessWidget {
                         ),
                         child: Text(
                           "1m",
-                          style: TextStyle(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.montserrat(
+                              fontSize: 16, color: Colors.white),
                         ),
                       ),
                       TextButton(
@@ -125,7 +148,8 @@ class Chart extends StatelessWidget {
                         ),
                         child: Text(
                           "1w",
-                          style: TextStyle(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.montserrat(
+                              fontSize: 16, color: Colors.white),
                         ),
                       ),
                     ],

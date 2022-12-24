@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import '../functions/round.dart';
 import 'constants.dart';
 
 class DetailsCard extends StatelessWidget {
@@ -16,7 +14,7 @@ class DetailsCard extends StatelessWidget {
       width: 380,
       height: 100,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
           colors: [
@@ -30,7 +28,17 @@ class DetailsCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [Text(item), Text(value)],
+          children: [
+            Text(
+              item,
+              style: GoogleFonts.montserrat(
+                  fontSize: 16, fontWeight: FontWeight.w500),
+            ),
+            Text(
+              value,
+              style: GoogleFonts.montserrat(fontSize: 16),
+            )
+          ],
         ),
       ),
     );

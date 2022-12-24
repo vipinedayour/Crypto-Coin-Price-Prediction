@@ -2,6 +2,7 @@ import 'package:crypto_price_prediction/utilities/bottom_card.dart';
 import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:crypto_price_prediction/utilities/custom_list_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../functions/round.dart';
 import '../functions/status.dart';
@@ -78,16 +79,21 @@ class CryptoCard extends StatelessWidget {
                 children: [
                   Text(
                     "\$ ${roundIt(cryptoDetail.priceUsd.toString())}",
-                    style: TextStyle(fontSize: 18),
+                    style: GoogleFonts.montserrat(
+                        fontSize: 16, color: Colors.white),
                   ),
                   Row(
                     children: [
                       status ? UpArrow() : DownArrow(),
                       Text(
                         roundIt(cryptoDetail.changePercent24Hr.toString()),
-                        style: TextStyle(
-                            color: status ? kTextGreen : kTextRed,
-                            fontSize: 15),
+                        style: GoogleFonts.montserrat(
+                          fontSize: 16,
+                          color: status ? kTextGreen : kTextRed,
+                        ),
+                        // style: TextStyle(
+                        //     color: status ? kTextGreen : kTextRed,
+                        //     fontSize: 15),
                       ),
                     ],
                   ),

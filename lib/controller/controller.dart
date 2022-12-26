@@ -16,6 +16,7 @@ class Controller extends GetxController {
   var maxX = 0.obs;
   var maxPrice = 0.0.obs;
   var minPrice = 0.0.obs;
+  var interval = 90.obs;
 
   fetchPrice(String coin) async {
     isLoading.value = true;

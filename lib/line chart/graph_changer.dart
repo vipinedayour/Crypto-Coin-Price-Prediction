@@ -14,6 +14,7 @@ class GraphChanger extends StatelessWidget {
         TextButton(
           onPressed: () {
             controller.minX.value = 0;
+            controller.interval.value = 90;
           },
           style: ButtonStyle(
             backgroundColor: controller.minX.value == 0
@@ -33,6 +34,9 @@ class GraphChanger extends StatelessWidget {
         TextButton(
           onPressed: () {
             controller.minX.value = controller.maxX.value - 90;
+            controller.interval.value = 30;
+            print("here");
+            print(controller.interval.value);
           },
           style: ButtonStyle(
             backgroundColor: controller.minX.value == controller.maxX.value - 90
@@ -52,6 +56,7 @@ class GraphChanger extends StatelessWidget {
         TextButton(
           onPressed: () {
             controller.minX.value = controller.maxX.value - 30;
+            controller.interval.value = 10;
           },
           style: ButtonStyle(
             backgroundColor: controller.minX.value == controller.maxX.value - 30
@@ -71,6 +76,7 @@ class GraphChanger extends StatelessWidget {
         TextButton(
           onPressed: () {
             controller.minX.value = controller.maxX.value - 7;
+            controller.interval.value = 1;
           },
           style: ButtonStyle(
             backgroundColor: controller.minX.value == controller.maxX.value - 7

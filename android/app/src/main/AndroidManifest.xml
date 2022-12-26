@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.crypto_price_prediction">
    <application
-        android:label="crypto_price_prediction"
+        android:label="Crypto Monk"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

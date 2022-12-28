@@ -1,4 +1,3 @@
-import 'package:crypto_price_prediction/controller/details_controller.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

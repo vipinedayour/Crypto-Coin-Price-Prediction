@@ -1,5 +1,4 @@
 import 'package:crypto_price_prediction/pages/home_page.dart';
-import 'package:crypto_price_prediction/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

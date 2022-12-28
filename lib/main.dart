@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:crypto_price_prediction/model/details.dart';
 import 'package:crypto_price_prediction/pages/home_page.dart';
 import 'package:crypto_price_prediction/pages/graph_page.dart';

@@ -7,42 +7,36 @@ class CustomLegend extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      left: 20,
-      top: 20,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              const Icon(
-                Icons.call_missed_outgoing_sharp,
-                color: kPredictedPriceColor,
-                size: 20,
-              ),
-              Text(
-                "Predicted Price",
-                style:
-                    GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
-              )
-            ],
-          ),
-          Row(
-            children: [
-              const Icon(
-                Icons.call_missed_outgoing_sharp,
-                color: kActualPriceColor,
-                size: 20,
-              ),
-              Text(
-                "Actual Price",
-                style:
-                    GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
-              )
-            ],
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            const Icon(
+              Icons.call_missed_outgoing_sharp,
+              color: kPredictedPriceColor,
+              size: 20,
+            ),
+            Text(
+              "Predicted Price",
+              style: GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
+            )
+          ],
+        ),
+        Row(
+          children: [
+            const Icon(
+              Icons.call_missed_outgoing_sharp,
+              color: kActualPriceColor,
+              size: 20,
+            ),
+            Text(
+              "Actual Price",
+              style: GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
+            )
+          ],
+        ),
+      ],
     );
   }
 }

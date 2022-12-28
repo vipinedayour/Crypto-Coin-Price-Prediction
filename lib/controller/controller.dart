@@ -11,12 +11,15 @@ class Controller extends GetxController {
   var actualPriceList = [].obs;
   var predictedPriceList = [].obs;
   var dateList = [].obs;
+  var actPriceColumn = [].obs;
+  var prePriceColumn = [].obs;
   var isLoading = true.obs;
   var minX = 0.obs;
   var maxX = 0.obs;
   var maxPrice = 0.0.obs;
   var minPrice = 0.0.obs;
   var interval = 90.obs;
+  
 
   fetchPrice(String coin) async {
     isLoading.value = true;
@@ -31,6 +34,8 @@ class Controller extends GetxController {
         var actualPrice = List<double>.from(json['actual_price']);
         var predictedPrice = List<double>.from(json['predicted_price']);
         dateList.value = json['date'];
+        actPriceColumn.value = actualPrice;
+        prePriceColumn.value = predictedPrice;
         maxPrice.value = findMax(actualPrice);
         minPrice.value = findMin(actualPrice);
         maxX.value = actualPrice.length - 1;

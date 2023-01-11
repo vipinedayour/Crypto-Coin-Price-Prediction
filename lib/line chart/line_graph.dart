@@ -13,7 +13,7 @@ class LineGraph extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 0, right: 30, top: 20, bottom: 30),
+      margin: EdgeInsets.only(left: 20, right: 40, top: 20, bottom: 30),
       height: 500,
       child: LineChart(
         LineChartData(

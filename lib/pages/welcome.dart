@@ -44,7 +44,9 @@ class WelcomePage extends StatelessWidget {
             ),
           ),
           ElevatedButton(
-              onPressed: (() => Get.to(HomePage())),
+              onPressed: (() {
+                Get.to(HomePage());
+              }),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.orange),
                 shape: MaterialStateProperty.all(RoundedRectangleBorder(

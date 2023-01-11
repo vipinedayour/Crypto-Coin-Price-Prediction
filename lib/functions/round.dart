@@ -1,3 +1,7 @@
 String roundIt(var value) {
-  return double.parse(value.toString()).toStringAsFixed(2);
+  try {
+    return double.parse(value.toString()).toStringAsFixed(2);
+  } catch (e) {
+    return '0.00';
+  }
 }

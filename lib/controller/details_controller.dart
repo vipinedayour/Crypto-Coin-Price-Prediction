@@ -26,7 +26,7 @@ class DetailsController extends GetxController {
         bitcoin.value = dataFromJson(json['data'][0]);
         etherium.value = dataFromJson(json['data'][1]);
         usdt.value = dataFromJson(json['data'][2]);
-        dogecoin.value = dataFromJson(json['data'][7]);
+        dogecoin.value = dataFromJson(json['data'][8]);
       } else {
         print("error fetching data");
       }

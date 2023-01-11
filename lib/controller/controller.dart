@@ -19,14 +19,13 @@ class Controller extends GetxController {
   var maxPrice = 0.0.obs;
   var minPrice = 0.0.obs;
   var interval = 90.obs;
-  
 
   fetchPrice(String coin) async {
     isLoading.value = true;
     try {
-      var uri = Uri.https('gktc123.pythonanywhere.com', coin);
+      var uri = Uri.https('minorwork.pythonanywhere.com', coin);
       final response = await http.get(uri);
-      print("Status Code:${response.statusCode}");
+      // print("Status Code:${response.statusCode}");
 
       if (response.statusCode == 200) {
         var jsonString = response.body;

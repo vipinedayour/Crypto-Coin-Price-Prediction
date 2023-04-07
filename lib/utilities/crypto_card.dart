@@ -48,7 +48,7 @@ class CryptoCard extends StatelessWidget {
         ),
         margin: const EdgeInsets.symmetric(horizontal: 20),
         width: 380,
-        height: 100,
+        height: 80,
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Row(

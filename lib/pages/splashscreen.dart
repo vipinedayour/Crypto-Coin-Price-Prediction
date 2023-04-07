@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 
+
+
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 

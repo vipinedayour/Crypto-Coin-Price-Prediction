@@ -1,6 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/controller.dart';
 
@@ -11,11 +12,11 @@ class LineTitles {
     return FlTitlesData(
       show: true,
       bottomTitles: AxisTitles(
-        // axisNameWidget: Text(
-        //   "Days",
-        //   style: TextStyle(fontSize: 20),
-        // ),
-        // axisNameSize: 25,
+        axisNameWidget: Text(
+          "Days".toUpperCase(),
+          style: GoogleFonts.abel(
+              fontSize: 16, letterSpacing: 5, fontWeight: FontWeight.bold),
+        ),
         sideTitles: SideTitles(
           showTitles: true,
           reservedSize: 30,
@@ -25,15 +26,15 @@ class LineTitles {
       ),
       leftTitles: AxisTitles(
         drawBehindEverything: true,
-        // axisNameWidget: Text(
-        //   "Price",
-        //   style: TextStyle(fontSize: 20),
-        // ),
-        // axisNameSize: 25,
+        axisNameWidget: Text(
+          "Price (\$)".toUpperCase(),
+          style: GoogleFonts.abel(
+              fontSize: 16, letterSpacing: 5, fontWeight: FontWeight.bold),
+        ),
+        axisNameSize: 25,
         sideTitles: SideTitles(
-          showTitles: true,
           reservedSize: 30,
-          interval: 1,
+          showTitles: true,
           getTitlesWidget: leftTitleWidgets,
         ),
       ),
@@ -48,12 +49,11 @@ class LineTitles {
 }
 
 Widget bottomTitleWidgets(double value, TitleMeta meta) {
-  final controller = Get.put(Controller());
   Widget text;
   const style = TextStyle(
     color: Color(0xff68737d),
     fontWeight: FontWeight.bold,
-    fontSize: 16,
+    fontSize: 10,
   );
 
   // switch (value.toInt()) {
@@ -118,34 +118,35 @@ Widget leftTitleWidgets(double value, TitleMeta meta) {
   const style = TextStyle(
     color: Color(0xff67727d),
     fontWeight: FontWeight.bold,
-    fontSize: 15,
+    fontSize: 10,
   );
-  String text;
-  switch (value.toInt()) {
-    case 10000:
-      text = '10K';
-      break;
-    case 15000:
-      text = '15K';
-      break;
-    case 20000:
-      text = '20K';
-      break;
-    case 25000:
-      text = '25K';
-      break;
-    case 30000:
-      text = '30k';
-      break;
-    case 35000:
-      text = '35k';
-      break;
-    case 40000:
-      text = '40k';
-      break;
-    default:
-      return Container();
-  }
+  // String text;
+  // switch (value.toInt()) {
+  //   case 10000:
+  //     text = '10K';
+  //     break;
+  //   case 15000:
+  //     text = '15K';
+  //     break;
+  //   case 20000:
+  //     text = '20K';
+  //     break;
+  //   case 25000:
+  //     text = '25K';
+  //     break;
+  //   case 30000:
+  //     text = '30k';
+  //     break;
+  //   case 35000:
+  //     text = '35k';
+  //     break;
+  //   case 40000:
+  //     text = '40k';
+  //     break;
+  //   default:
+  //     return Container();
+  // }
 
-  return Text(text, style: style, textAlign: TextAlign.left);
+  return Text(value.toInt().toString(),
+      style: style, textAlign: TextAlign.left);
 }

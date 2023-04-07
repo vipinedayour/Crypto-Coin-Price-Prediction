@@ -1,6 +1,7 @@
 # Crypto Monk
 
 A new Flutter project.
+- flutter application which predicts the price of the cryptocoins in the future.
 
 ## Getting Started
 

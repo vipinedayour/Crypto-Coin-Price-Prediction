@@ -1,6 +1,7 @@
-# crypto_price_prediction
+# Crypto Monk
 
 A new Flutter project.
+- flutter application which predicts the price of the cryptocoins in the future.
 
 ## Getting Started
 
@@ -14,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Note:
+Clone the repo and simulate the application using VS Code or Android Studio with flutter framework installed.
+

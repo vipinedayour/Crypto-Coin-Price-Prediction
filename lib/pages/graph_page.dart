@@ -11,16 +11,14 @@ import '../functions/round.dart';
 import '../line chart/custom_legend.dart';
 import '../line chart/line_graph.dart';
 
+// ignore: must_be_immutable
 class Chart extends StatelessWidget {
   Data cryptoDetails;
   Chart({super.key, required this.cryptoDetails});
 
   final controller = Get.put(Controller());
 
-  final List<Color> gradientColors = [
-    const Color(0xff23b6e6),
-    const Color(0xff02d39a)
-  ];
+  final List<Color> gradientColors = [const Color(0xff23b6e6), const Color(0xff02d39a)];
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +50,7 @@ class Chart extends StatelessWidget {
                           margin: EdgeInsets.only(top: 80),
                           child: Text(
                             cryptoDetails.name.toString().toUpperCase(),
-                            style: GoogleFonts.abel(
-                                fontSize: 24, fontWeight: FontWeight.w600),
+                            style: GoogleFonts.abel(fontSize: 24, fontWeight: FontWeight.w600),
                           ),
                         ),
                       ),
@@ -70,11 +67,8 @@ class Chart extends StatelessWidget {
                           controller.minX.value = 0;
                         },
                         style: ButtonStyle(
-                          backgroundColor: controller.minX.value == 0
-                              ? MaterialStateProperty.all(Colors.grey[800])
-                              : MaterialStateProperty.all(Colors.grey[900]),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                          backgroundColor: controller.minX.value == 0 ? MaterialStateProperty.all(Colors.grey[800]) : MaterialStateProperty.all(Colors.grey[900]),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                             ),
@@ -82,8 +76,7 @@ class Chart extends StatelessWidget {
                         ),
                         child: Text(
                           "1y",
-                          style: GoogleFonts.montserrat(
-                              fontSize: 16, color: Colors.white),
+                          style: GoogleFonts.montserrat(fontSize: 16, color: Colors.white),
                         ),
                       ),
                       TextButton(
@@ -91,12 +84,8 @@ class Chart extends StatelessWidget {
                           controller.minX.value = controller.maxX.value - 90;
                         },
                         style: ButtonStyle(
-                          backgroundColor: controller.minX.value ==
-                                  controller.maxX.value - 90
-                              ? MaterialStateProperty.all(Colors.grey[800])
-                              : MaterialStateProperty.all(Colors.grey[900]),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                          backgroundColor: controller.minX.value == controller.maxX.value - 90 ? MaterialStateProperty.all(Colors.grey[800]) : MaterialStateProperty.all(Colors.grey[900]),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                             ),
@@ -104,8 +93,7 @@ class Chart extends StatelessWidget {
                         ),
                         child: Text(
                           "3m",
-                          style: GoogleFonts.montserrat(
-                              fontSize: 16, color: Colors.white),
+                          style: GoogleFonts.montserrat(fontSize: 16, color: Colors.white),
                         ),
                       ),
                       TextButton(
@@ -113,12 +101,8 @@ class Chart extends StatelessWidget {
                           controller.minX.value = controller.maxX.value - 30;
                         },
                         style: ButtonStyle(
-                          backgroundColor: controller.minX.value ==
-                                  controller.maxX.value - 30
-                              ? MaterialStateProperty.all(Colors.grey[800])
-                              : MaterialStateProperty.all(Colors.grey[900]),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                          backgroundColor: controller.minX.value == controller.maxX.value - 30 ? MaterialStateProperty.all(Colors.grey[800]) : MaterialStateProperty.all(Colors.grey[900]),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                             ),
@@ -126,8 +110,7 @@ class Chart extends StatelessWidget {
                         ),
                         child: Text(
                           "1m",
-                          style: GoogleFonts.montserrat(
-                              fontSize: 16, color: Colors.white),
+                          style: GoogleFonts.montserrat(fontSize: 16, color: Colors.white),
                         ),
                       ),
                       TextButton(
@@ -135,12 +118,8 @@ class Chart extends StatelessWidget {
                           controller.minX.value = controller.maxX.value - 7;
                         },
                         style: ButtonStyle(
-                          backgroundColor:
-                              controller.minX.value == controller.maxX.value - 7
-                                  ? MaterialStateProperty.all(Colors.grey[800])
-                                  : MaterialStateProperty.all(Colors.grey[900]),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                          backgroundColor: controller.minX.value == controller.maxX.value - 7 ? MaterialStateProperty.all(Colors.grey[800]) : MaterialStateProperty.all(Colors.grey[900]),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                             ),
@@ -148,8 +127,7 @@ class Chart extends StatelessWidget {
                         ),
                         child: Text(
                           "1w",
-                          style: GoogleFonts.montserrat(
-                              fontSize: 16, color: Colors.white),
+                          style: GoogleFonts.montserrat(fontSize: 16, color: Colors.white),
                         ),
                       ),
                     ],
@@ -185,30 +163,26 @@ class Chart extends StatelessWidget {
                               ],
                             ),
                           ),
-                          border: TableBorder.all(
-                              width: 0, color: Color.fromARGB(255, 92, 92, 92)),
+                          border: TableBorder.all(width: 0, color: Color.fromARGB(255, 92, 92, 92)),
                           dataTextStyle: GoogleFonts.montserrat(fontSize: 12),
                           columnSpacing: 14,
                           columns: [
                             DataColumn(
                               label: Text(
                                 'Date',
-                                style: GoogleFonts.montserrat(
-                                    fontWeight: FontWeight.bold),
+                                style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),
                               ),
                             ),
                             DataColumn(
                               label: Text(
                                 'Actual Price (\$)',
-                                style: GoogleFonts.montserrat(
-                                    fontWeight: FontWeight.bold),
+                                style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),
                               ),
                             ),
                             DataColumn(
                               label: Text(
                                 'Predicted Price (\$)',
-                                style: GoogleFonts.montserrat(
-                                    fontWeight: FontWeight.bold),
+                                style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),
                               ),
                             )
                           ],
@@ -217,16 +191,21 @@ class Chart extends StatelessWidget {
                             controller.actualPriceList.value.length,
                             (index) => DataRow(cells: [
                               DataCell(Text(
+                                // ignore: invalid_use_of_protected_member
                                 controller.dateList.value[index],
                               )),
                               DataCell(Container(
                                 child: Text(controller
-                                    .actPriceColumn.value[index]
+                                    // ignore: invalid_use_of_protected_member
+                                    .actPriceColumn
+                                    .value[index]
                                     .toString()),
                               )),
                               DataCell(Container(
                                 child: Text(controller
-                                    .prePriceColumn.value[index]
+                                    // ignore: invalid_use_of_protected_member
+                                    .prePriceColumn
+                                    .value[index]
                                     .toString()),
                               )),
                             ]),

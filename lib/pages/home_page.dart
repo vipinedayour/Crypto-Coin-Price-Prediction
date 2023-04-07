@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
               ),
               CryptoCard(
                 cryptoDetail: detailsController.usdt.value,
-                icon: CryptoFontIcons.BTC,
+                icon: CryptoFontIcons.USDT,
               ),
               // CryptoCard(
               //   cryptoDetail: detailsController.bitcoin.value,
@@ -73,31 +73,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              // CryptoCard(
-              //   cryptoDetail: detailsController.bitcoin.value,
-              //   icon: CryptoFontIcons.BTC,
-              // ),
-              // const SizedBox(
-              //   height: 20,
-              // ),
-              // CryptoCard(
-              //   cryptoDetail: detailsController.etherium.value,
-              //   icon: CryptoFontIcons.ETH,
-              // ),
-              // const SizedBox(
-              //   height: 20,
-              // ),
-              // CryptoCard(
-              //   cryptoDetail: detailsController.dogecoin.value,
-              //   icon: CryptoFontIcons.DOGE,
-              // ),
-              // const SizedBox(
-              //   height: 20,
-              // ),
-              // CryptoCard(
-              //   cryptoDetail: detailsController.usdt.value,
-              //   icon: CryptoFontIcons.USDT,
-              // ),
+              
 
               Container(
                 height: 80,

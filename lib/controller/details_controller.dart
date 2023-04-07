@@ -15,21 +15,33 @@ class DetailsController extends GetxController {
   fetchDetails() async {
     isLoading.value = true;
     try {
-      var uri = Uri.https('api.coincap.io', '/v2/assets');
-      final response = await http.get(uri);
+      List coins = ['bitcoin', 'ethereum', 'tether', 'dogecoin'];
 
-      print("Status Code:${response.statusCode}");
+      for (var coin in coins) {
+        var uri = Uri.https('api.coincap.io', '/v2/assets/$coin');
+        final response = await http.get(uri);
+        if (response.statusCode == 200) {
+          var json = jsonDecode(response.body);
 
-      if (response.statusCode == 200) {
-        var json = jsonDecode(response.body);
-
-        bitcoin.value = dataFromJson(json['data'][0]);
-        etherium.value = dataFromJson(json['data'][1]);
-        usdt.value = dataFromJson(json['data'][2]);
-        dogecoin.value = dataFromJson(json['data'][8]);
-      } else {
-        print("error fetching data");
+          switch (coin) {
+            case ('bitcoin'):
+              bitcoin.value = dataFromJson(json['data']);
+              break;
+            case ('ethereum'):
+              etherium.value = dataFromJson(json['data']);
+              break;
+            case ('tether'):
+              usdt.value = dataFromJson(json['data']);
+              break;
+            case ('dogecoin'):
+              dogecoin.value = dataFromJson(json['data']);
+              break;
+          }
+        } else {
+          print("error fetching data");
+        }
       }
+     
     } catch (e) {
       print(e);
     } finally {

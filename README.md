@@ -1,4 +1,4 @@
-# crypto_price_prediction
+# Crypto Monk
 
 A new Flutter project.
 
